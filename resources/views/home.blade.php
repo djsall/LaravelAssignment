@@ -13,8 +13,11 @@
 								{{ session('status') }}
 							</div>
 						@endif
-
-						Welcome {{ Auth::user()->name }}!
+						@if(Auth::user())
+							Welcome {{ Auth::user()->name }}!
+						@else
+							Welcome! Please sign up, or log in!
+						@endif
 					</div>
 				</div>
 			</div>
