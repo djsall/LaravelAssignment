@@ -50,6 +50,9 @@
                     <li class="nav-item @if(Route::is('gallery')) active @endif">
                         <a href="{{ route('gallery') }}" class="nav-link"> {{ __('Gallery') }}</a>
                     </li>
+                    <li class="nav-item @if(Route::is('contact')) active @endif">
+                        <a href="{{ route('contact') }}" class="nav-link">{{__('Contact Us')}}</a>
+                    </li>
 
                     <li class="nav-item dropdown">
                         <a href="#" id="menu"
