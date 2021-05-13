@@ -19,13 +19,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [
-	App\Http\Controllers\HomeController::class,
-	'index'
-])->name('home');
+Route::get('/home', 'HomeController@index');
 
-Route::get('gallery', 'App\Http\Controllers\GalleryController@index')->name('gallery')->middleware('auth');
-Route::post('gallery', 'App\Http\Controllers\GalleryController@upload')->middleware('auth');
-Route::delete('gallery/{id}', 'App\Http\Controllers\GalleryController@destroy')->middleware('auth');
+Route::get('gallery', 'GalleryController@index')->middleware('auth');
+Route::post('gallery', 'GalleryController@upload')->middleware('auth');
+Route::delete('gallery/{id}', 'GalleryController@destroy')->middleware('auth');
 
-Route::get('contact', 'App\Http\Controllers\ContactUsController@index')->name('contact');
+Route::get('contact', 'ContactUsController@index');
+Route::post('contact', 'ContactUsController@store');
