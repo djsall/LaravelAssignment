@@ -15,6 +15,9 @@
 						@endif
 						@if(Auth::user())
 							Welcome {{ Auth::user()->name }}!
+							@if(Auth::user()->isAdmin())
+								<p>I'm an admin yay</p>
+							@endif
 						@else
 							Welcome! Please sign up, or log in!
 						@endif

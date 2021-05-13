@@ -14,14 +14,13 @@ class AdminMiddleware {
 	 * @param \Closure $next
 	 * @return mixed
 	 */
-	public function handle(Request $request, Closure $next) {
-		if (Auth::check()) {
-			if (Auth::user()->isAdmin()) {
-				return $next($request);
-			}
+	public function handle($request, Closure $next) {
+		if (\Auth::user() && \Auth::user()->isAdmin()) {
+			return $next($request);
 		}
+
 		return redirect(url()->previous())->with([
-			'error' => 'The requested resource requires administrator privileges'
+			'error' => 'You need admin privileges to access this content.'
 		]);
 	}
 }

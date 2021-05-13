@@ -27,3 +27,4 @@ Route::delete('gallery/{id}', 'GalleryController@destroy')->middleware('auth');
 
 Route::get('contact', 'ContactUsController@index');
 Route::post('contact', 'ContactUsController@store');
+Route::get('contact/all', 'ContactUsController@viewMessages')->middleware('admin');

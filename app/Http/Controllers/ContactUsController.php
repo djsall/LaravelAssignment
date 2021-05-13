@@ -23,4 +23,8 @@ class ContactUsController extends Controller {
 
 		return redirect(url()->previous())->with('success', 'We have recieved your message, we will get back to you shotrly.');
 	}
+
+	public function viewMessages(Request $request) {
+		return view('contact.viewAll', ["entries" => Contacts::all()]);
+	}
 }

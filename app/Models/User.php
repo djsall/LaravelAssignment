@@ -43,11 +43,6 @@ class User extends Authenticatable {
 
 	//check if the user is an admin
 	public function isAdmin() {
-		return $this->role === 'admin';
-	}
-
-	//check if the user is just a regular user
-	public function isUser() {
-		return $this->role === 'user';
+		return $this->role == 'admin';
 	}
 }
