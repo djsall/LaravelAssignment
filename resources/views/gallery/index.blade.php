@@ -32,7 +32,7 @@
     <div class="container">
 
 
-        <h3>Laravel - Image Gallery CRUD Example</h3>
+        <h3>Laravel - Image Gallery CRUD</h3>
 
         <form action="{{ url('gallery') }}" class="form-image-upload" method="POST" enctype="multipart/form-data">
 
