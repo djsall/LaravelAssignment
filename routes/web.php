@@ -24,6 +24,6 @@ Route::get('/home', [
 	'index'
 ])->name('home');
 
-Route::get('gallery', 'App\Http\Controllers\GalleryController@index')->middleware('auth');
+Route::get('gallery', 'App\Http\Controllers\GalleryController@index')->name('gallery')->middleware('auth');
 Route::post('gallery', 'App\Http\Controllers\GalleryController@upload')->middleware('auth');
 Route::delete('gallery/{id}', 'App\Http\Controllers\GalleryController@destroy')->middleware('auth');
