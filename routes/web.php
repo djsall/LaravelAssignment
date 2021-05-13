@@ -23,3 +23,7 @@ Route::get('/home', [
 	App\Http\Controllers\HomeController::class,
 	'index'
 ])->name('home');
+
+Route::get('gallery', 'App\Http\Controllers\GalleryController@index');
+Route::post('gallery', 'App\Http\Controllers\GalleryController@upload');
+Route::delete('gallery/{id}', 'App\Http\Controllers\GalleryController@destroy');
