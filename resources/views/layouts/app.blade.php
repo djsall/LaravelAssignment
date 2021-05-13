@@ -47,14 +47,14 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<!-- Left Side Of Navbar -->
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item @if(Route::is('gallery')) active @endif">
+					<li class="nav-item @if(Request::is('gallery')) active @endif">
 						<a href="{{ action('GalleryController@index') }}" class="nav-link"> {{ __('Gallery') }}</a>
 					</li>
-					<li class="nav-item @if(Route::is('contact')) active @endif">
+					<li class="nav-item @if(Request::is('contact')) active @endif">
 						<a href="{{ action('ContactUsController@index') }}" class="nav-link">{{__('Contact Us')}}</a>
 					</li>
-					@if(Auth::user()->isAdmin())
-						<li class="nav-item @if(Route::is('contact/all')) active @endif">
+					@if(Auth::check() && Auth::user()->isAdmin())
+						<li class="nav-item @if(Request::is('contact/all')) active @endif">
 							<a href="{{ action('ContactUsController@viewMessages')  }}" class="nav-link">{{__('View Messages')}}</a>
 						</li>
 					@endif
