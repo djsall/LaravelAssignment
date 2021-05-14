@@ -4,25 +4,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" integrity="sha512-nNlU0WK2QfKsuEmdcTwkeh+lhGs6uyOxuUs+n+0oXSYDok5qy0EI0lt01ZynHq6+p/tbgpZ7P+yUb+r71wqdXg=="
           crossorigin="anonymous"/>
-    <style type="text/css">
-        .gallery {
-            display: inline-block;
-            margin-top: 20px;
-        }
-
-        .close-icon {
-            border-radius: 50%;
-            position: absolute;
-            right: 5px;
-            top: -10px;
-            padding: 5px 8px;
-        }
-
-        .form-image-upload {
-            background: #e8e8e8 none repeat scroll 0 0;
-            padding: 15px;
-        }
-    </style>
 @endsection
 
 @section('content')
@@ -63,26 +44,31 @@
                 </div>
             </div>
         </form>
-        <div class="row">
-            <div class='list-group gallery'>
-                @if($images->count())
-                    @foreach($images as $image)
-                        <div class='col-sm-4 col-xs-6 col-md-3 col-lg-3'>
-                            <a class="thumbnail fancybox" rel="ligthbox" href="/images/{{ $image->image }}">
-                                <img class="img-fluid" alt="" src="/images/{{ $image->image }}"/>
-                                <div class='text-center'>
-                                    <small class='text-muted'>{{ $image->title }} - User: {{ $image->owner->name }}</small>
-                                </div>
+        <div class="row mt-5">
+            @if($images->count())
+                @foreach($images as $image)
+                    <div class='col-4'>
+                        <div class="card p-3 mb-4">
+
+                            <a class="card-img-top text-center" rel="ligthbox" href="/images/{{ $image->image }}">
+                                <img class="img-fluid" alt="" src="/images/{{ $image->image }}" style="max-height: 175px;"/>
                             </a>
-                            <form action="{{ url('gallery',$image->id) }}" method="POST">
-                                <input type="hidden" name="_method" value="delete">
-                                @csrf
-                                <button type="submit" class="close-icon btn btn-danger"><i class="fas fa-times"></i></button>
-                            </form>
+                            <div class='card-title text-center'>
+                                <small class='text-muted'>{{ $image->title }} - User: {{ $image->owner->name }}</small>
+                            </div>
+                            @if(Auth::check())
+                                @if(Auth::user()->id == $image->owner->id || Auth::user()->isAdmin())
+                                    <form action="{{ url('gallery',$image->id) }}" method="POST">
+                                        <input type="hidden" name="_method" value="delete">
+                                        @csrf
+                                        <button type="submit" class="btn-block btn btn-danger">Delete</button>
+                                    </form>
+                                @endif
+                            @endif
                         </div>
-                    @endforeach
-                @endif
-            </div>
+                    </div>
+                @endforeach
+            @endif
         </div>
     </div>
 @endsection
