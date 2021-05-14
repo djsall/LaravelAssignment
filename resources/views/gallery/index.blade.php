@@ -5,13 +5,6 @@
         <h1>Image Gallery</h1>
         <form action="{{ url('gallery') }}" class="form-image-upload" method="POST" enctype="multipart/form-data">
             @csrf
-            @if ($message = Session::get('success'))
-                <div class="alert alert-success alert-block">
-                    <button type="button" class="close" data-dismiss="alert">×</button>
-                    <label>{{ $message }}</label>
-                </div>
-            @endif
-
             <div class="row">
                 <div class="col-12 col-sm-5">
 
