@@ -45,4 +45,8 @@ class User extends Authenticatable {
 	public function isAdmin() {
 		return $this->role == 'admin';
 	}
+
+	public function image() {
+		return $this->hasMany('App\Models\Gallery', 'userid', 'id');
+	}
 }

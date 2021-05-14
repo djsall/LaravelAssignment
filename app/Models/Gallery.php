@@ -13,4 +13,8 @@ class Gallery extends Model {
 		'title',
 		'image'
 	];
+
+	public function owner() {
+		return $this->hasOne('App\Models\User', 'id', 'userid');
+	}
 }
