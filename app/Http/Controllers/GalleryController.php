@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Gallery;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class GalleryController extends Controller {
 	//show the gallery
@@ -25,6 +26,8 @@ class GalleryController extends Controller {
 		$request->image->move(public_path('images'), $input['image']);
 
 		$input['title'] = $request->title;
+
+		$input['userid'] = Auth::user()->id;
 
 		Gallery::create($input);
 
