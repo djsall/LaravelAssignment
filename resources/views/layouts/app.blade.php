@@ -135,12 +135,7 @@
         </div>
     </nav>
     <div class="container">
-        @if(isset($success))
-            @dump($success);
-        @endif
-        @if(isset($error))
-            @dump($error);
-        @endif
+        @include('inc.messages')
     </div>
     <main class="py-4">
         @yield('content')
