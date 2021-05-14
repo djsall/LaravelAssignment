@@ -63,17 +63,23 @@
                            data-toggle="dropdown" class="nav-link dropdown-toggle @if(Request::has('nonprofit')) active @endif"
                            data-display="static">Nonprofit Sites</a>
                         <ul class="dropdown-menu">
-                            <li class="dropdown-item dropdown-submenu">
-                                <a href="#" data-toggle="dropdown" class="dropdown-toggle">Submenu-1</a>
+                            <li class="dropdown-item dropdown-submenu nav-item">
+                                <a href="#" data-toggle="dropdown" class="dropdown-toggle">Expand me</a>
                                 <ul class="dropdown-menu nav-item">
                                     <li class="dropdown-item">
-                                        <a href="#">Item-1</a>
+                                        <a href="#">Page-1</a>
                                     </li>
                                     <li class="dropdown-item">
-                                        <a href="#">Item-2</a>
+                                        <a href="#">Page-2</a>
                                     </li>
                                     <li class="dropdown-item">
-                                        <a href="#">Item-3</a>
+                                        <a href="#">Page-3</a>
+                                    </li>
+                                    <li class="dropdown-item">
+                                        <a href="#">Page-4</a>
+                                    </li>
+                                    <li class="dropdown-item">
+                                        <a href="#">Page-5</a>
                                     </li>
                                 </ul>
                             </li>
