@@ -31,6 +31,7 @@
                                 Log in, or Sign up to use our member features.
                             </p>
                         @endif
+                        <a href="https://www.nonprofit.hu/">The page I have chosen to recreate.</a>
                     </div>
                 </div>
             </div>
