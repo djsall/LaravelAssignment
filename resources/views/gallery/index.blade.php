@@ -13,21 +13,21 @@
             @endif
 
             <div class="row">
-                <div class="col-5">
+                <div class="col-12 col-sm-5">
 
                     <div class="form-group">
                         <label>Title:</label>
                         <input type="text" name="title" class="form-control" placeholder="Title">
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-12 col-sm-4">
 
                     <div class="form-group">
                         <label>Image:</label>
                         <input type="file" name="image" class="form-control">
                     </div>
                 </div>
-                <div class="col-3">
+                <div class="col-12 col-sm-3">
                     <label>Upload:</label>
                     <button type="submit" class="btn btn-block btn-primary">Upload</button>
                 </div>
@@ -36,7 +36,7 @@
         <div class="row mt-5">
             @if($images->count())
                 @foreach($images as $image)
-                    <div class='col-4'>
+                    <div class='col-12 col-sm-4'>
                         <div class="card p-3 mb-4">
 
                             <a class="card-img-top text-center" rel="ligthbox" href="/images/{{ $image->image }}">
