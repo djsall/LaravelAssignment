@@ -61,8 +61,8 @@
 
                     <li class="nav-item dropdown">
                         <a href="#" id="menu"
-                           data-toggle="dropdown" class="nav-link dropdown-toggle"
-                           data-display="static">Dropdown</a>
+                           data-toggle="dropdown" class="nav-link dropdown-toggle @if(Request::has('nonprofit')) active @endif"
+                           data-display="static">Nonprofit Sites</a>
                         <ul class="dropdown-menu">
                             <li class="dropdown-item dropdown-submenu">
                                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Submenu-1</a>
