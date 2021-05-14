@@ -47,6 +47,35 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
+                    {{--double dropdown--}}
+                    <li class="nav-item dropdown">
+                        <a href="#" id="menu"
+                           data-toggle="dropdown" class="nav-link dropdown-toggle @if(Request::is('nonprofit/*')) active @endif"
+                           data-display="static">Nonprofit Sites</a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-item dropdown-submenu nav-item">
+                                <a href="#" data-toggle="dropdown" class="dropdown-toggle">Expand me</a>
+                                <ul class="dropdown-menu nav-item">
+                                    <li class="dropdown-item">
+                                        <a href="{{action('NonprofitController@page1')}}">Pályázatok</a>
+                                    </li>
+                                    <li class="dropdown-item">
+                                        <a href="{{action('NonprofitController@page2')}}">Állások</a>
+                                    </li>
+                                    <li class="dropdown-item">
+                                        <a href="{{action('NonprofitController@page3')}}">Tudástár</a>
+                                    </li>
+                                    <li class="dropdown-item">
+                                        <a href="{{action('NonprofitController@page4')}}">Hírek</a>
+                                    </li>
+                                    <li class="dropdown-item">
+                                        <a href="{{action('NonprofitController@page5')}}">Események</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li> {{--end of double dropdown--}}
+
                     <li class="nav-item @if(Request::is('gallery')) active @endif">
                         <a href="{{ action('GalleryController@index') }}" class="nav-link"> {{ __('Gallery') }}</a>
                     </li>
@@ -58,33 +87,6 @@
                             <a href="{{ action('ContactUsController@viewMessages')  }}" class="nav-link">{{__('View Messages')}}</a>
                         </li>
                     @endif
-                    <li class="nav-item dropdown">
-                        <a href="#" id="menu"
-                           data-toggle="dropdown" class="nav-link dropdown-toggle @if(Request::is('nonprofit/*')) active @endif"
-                           data-display="static">Nonprofit Sites</a>
-                        <ul class="dropdown-menu">
-                            <li class="dropdown-item dropdown-submenu nav-item">
-                                <a href="#" data-toggle="dropdown" class="dropdown-toggle">Expand me</a>
-                                <ul class="dropdown-menu nav-item">
-                                    <li class="dropdown-item">
-                                        <a href="{{action('NonprofitController@page1')}}">Page-1</a>
-                                    </li>
-                                    <li class="dropdown-item">
-                                        <a href="{{action('NonprofitController@page2')}}">Page-2</a>
-                                    </li>
-                                    <li class="dropdown-item">
-                                        <a href="{{action('NonprofitController@page3')}}">Page-3</a>
-                                    </li>
-                                    <li class="dropdown-item">
-                                        <a href="{{action('NonprofitController@page4')}}">Page-4</a>
-                                    </li>
-                                    <li class="dropdown-item">
-                                        <a href="{{action('NonprofitController@page5')}}">Page-5</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -135,7 +137,6 @@
 </body>
 @yield('scripts')
 <script>
-
 	$('.dropdown-submenu > a').on("click", function (e) {
 		var submenu = $(this);
 		$('.dropdown-submenu .dropdown-menu').removeClass('show');
